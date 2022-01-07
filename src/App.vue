@@ -1,28 +1,45 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <base-select
+            class="col-md-6"
+            v-model="select"
+            :options="items"
+        ></base-select>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import BaseSelect from "@/components/BaseSelect.vue";
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+    name: "App",
+    components: {
+        BaseSelect,
+    },
+    data() {
+        return {
+            items: ["a", "b", "c"],
+            // items: [
+            //   {
+            //     value: "1",
+            //     label: "a",
+            //   },
+            //   {
+            //     value: "2",
+            //     label: "b",
+            //   },
+            //   {
+            //     value: "3",
+            //     label: "c",
+            //   },
+            // ],
+            select: null,
+        };
+    },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.col-md-6 {
+    margin: 20px;
 }
 </style>
